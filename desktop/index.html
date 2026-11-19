@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EAKU — 건축학부 아카이브 (데스크탑)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/common.css">
+<link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <a href="#home" aria-label="EAKU 홈"><svg class="logo" viewBox="0 0 58 50" fill="currentColor" role="img" aria-label="EAKU">
+          <!-- E -->
+          <path d="M2 2h18v7H10v3h9v6H10v1h10v6H2z" transform="translate(0 -1)"/>
+          <!-- house / A mark -->
+          <path d="M40 1 L56 10 V24 H24 V10 Z" transform="translate(-1 -1) scale(.95) translate(2 1)"/>
+          <!-- K -->
+          <path d="M2 28h9v8l7-8h11l-9 9.5L30 49H19l-8-9v9H2z" transform="translate(0 0) scale(.9) translate(0 2)"/>
+          <!-- U -->
+          <path d="M33 28h9v13h5V28h9v14a8 8 0 0 1-8 8H41a8 8 0 0 1-8-8z" transform="translate(-1 -2) scale(.95) translate(1 2)"/>
+        </svg></a>
+      <nav class="nav" aria-label="주 메뉴">
+        <a href="#home" data-r="home">Home</a>
+        <a href="#project" data-r="project">Project</a>
+        <a href="#studio" data-r="studio">Studio</a>
+        <a href="#about" data-r="about">About</a>
+        <button type="button" id="idxBtn">⌕ Index</button>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="wrap" id="app"></main>
+<div class="wrap"><footer>
+  <span>건축학부 작품 아카이브 · 시연용 페이지</span>
+  <span><a href="../mobile/index.html">모바일 버전 보기</a></span>
+</footer></div>
+<div class="ov" id="search" role="dialog" aria-modal="true" aria-label="검색"><div class="wrap">
+  <div class="ov-bar"><b>INDEX</b><button type="button" id="searchClose" aria-label="닫기">✕</button></div>
+  <input class="sinput" id="sq" placeholder="작품명 또는 학생 이름" autocomplete="off">
+  <ul class="sres" id="sres"></ul>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="../assets/core.js"></script>
+<script src="desktop.js"></script>
+</body>
+</html>

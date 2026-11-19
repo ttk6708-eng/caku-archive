@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EAKU — 건축학부 아카이브</title>
+<style>
+body{font-family:system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;color:#111}
+@media(prefers-color-scheme:dark){body{background:#0f0f0f;color:#f2f2f2}}
+p{font-size:13px;letter-spacing:.04em;text-align:center;line-height:2}
+a{color:inherit}
+</style>
+<script>
+/* 기기에 맞는 버전으로 이동합니다. 주소 끝에 ?view=desktop 또는 ?view=mobile 을 붙이면 직접 고를 수 있습니다. */
+(function(){
+  var q=location.search.match(/[?&]view=(desktop|mobile)/);
+  var phone=/iPhone|iPod|Android.*Mobile|Windows Phone/i.test(navigator.userAgent)||window.innerWidth<=760;
+  var v=q?q[1]:(phone?'mobile':'desktop');
+  location.replace(v+'/index.html'+location.hash);
+})();
+</script>
+</head>
+<body>
+<noscript><p>EAKU<br><a href="desktop/index.html">데스크탑 버전</a> · <a href="mobile/index.html">모바일 버전</a></p></noscript>
+</body>
+</html>

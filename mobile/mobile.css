@@ -1,0 +1,51 @@
+/* EAKU — 모바일 전용 스타일 (≤760px 기준으로 작성) */
+:root{--gut:20px}
+  .top{align-items:center;padding-top:16px;padding-bottom:16px}
+  .logo{width:38px;height:33px}
+  .nav{display:none}
+  .m-actions{display:flex}
+  .m-tabs{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink)}
+  .m-tabs a{font-size:11px;letter-spacing:.14em;color:var(--mid);padding:15px 8px 13px;margin-left:-8px;margin-right:-8px;border-bottom:2px solid transparent;margin-bottom:-1px;text-transform:uppercase}
+  .m-tabs a[aria-current="page"]{color:var(--ink);font-weight:600;border-color:var(--ink)}
+.g5,.g-studio,.g4{grid-template-columns:repeat(2,1fr);gap:10px}
+  .g5{row-gap:12px}
+  .card.below .meta{display:none}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gut)*-1);padding:0 var(--gut);scrollbar-width:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail .card{flex:0 0 82%;scroll-snap-align:start}
+  .rail .thumb{aspect-ratio:1/0.93}
+  .rail .cap b{font-size:15px}
+  .rail .cap{padding:0 14px 12px}
+  .rail .cap small{font-size:10px}
+.dots{display:flex}
+.two{grid-template-columns:1fr;gap:0}
+.news-feat{grid-template-columns:1fr;gap:0}
+  .news-feat .thumb{aspect-ratio:1/0.56;margin-bottom:14px}
+  .news-feat h3{font-size:20px;margin:6px 0 8px}
+  .news-feat p{font-size:14px}
+.nl li a{grid-template-columns:1fr auto;grid-template-areas:"k d" "t t";row-gap:3px;padding:12px 0}
+  .nl .k{grid-area:k}.nl .d{grid-area:d}.nl .t{grid-area:t;font-size:14px}
+.itv{grid-template-columns:1fr;gap:0}
+  .itv .thumb{aspect-ratio:1/0.95;margin-bottom:14px}
+  .itv blockquote{font-size:21px}
+  .itv p{font-size:14px}
+  .itv .more{margin-top:14px}
+.al li{grid-template-columns:44px 1fr auto;grid-template-areas:"p n y" "p o o";row-gap:0}
+  .al .thumb{grid-area:p}.al .n{grid-area:n}.al .o{grid-area:o}.al .y{grid-area:y}
+.frows{display:none}
+  .m-filterbar{display:flex;justify-content:space-between;align-items:center;margin:16px 0 14px}
+  .m-filterbar span{font-size:11px;letter-spacing:.1em;color:var(--mid);text-transform:uppercase}
+  .m-filterbar button{background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:.12em;padding:9px 14px}
+  .status{display:none}
+.crumb{margin-top:24px;border:0;padding-bottom:6px}
+  .s-head{grid-template-columns:1fr;gap:18px;padding:0 0 24px}
+  .s-head h1{font-size:34px}
+  .s-head p{margin-top:12px;font-size:15px}
+  .dl{border-top:1px solid var(--ink);margin-top:6px}
+.about{grid-template-columns:1fr;gap:24px;margin-top:28px}.about h1{font-size:32px}
+.detail{grid-template-columns:1fr;gap:20px}.detail h2{font-size:26px}
+.wk-gallery{grid-template-columns:1fr;gap:14px}
+  .pager a b{font-size:13px}
+  .idx-head{padding:6px 0 22px}.idx-head h1{font-size:34px}
+  .srow{grid-template-columns:1fr auto;grid-template-areas:"sid sn" "info info" "th th";gap:10px;padding:18px 0}
+  .sid{grid-area:sid}.sinfo{grid-area:info}.sth{grid-area:th}.sn{grid-area:sn}
