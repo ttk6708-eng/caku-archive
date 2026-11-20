@@ -14,7 +14,11 @@ a{color:inherit}
 /* 기기에 맞는 버전으로 이동합니다. 주소 끝에 ?view=desktop 또는 ?view=mobile 을 붙이면 직접 고를 수 있습니다. */
 (function(){
   var q=location.search.match(/[?&]view=(desktop|mobile)/);
-  var phone=/iPhone|iPod|Android.*Mobile|Windows Phone/i.test(navigator.userAgent)||window.innerWidth<=760;
+  /* 창 너비가 아니라 기기 종류로 판단합니다. (PC에서 창을 좁히거나 화면 배율이 커도 데스크탑 버전이 열립니다) */
+  var ua=navigator.userAgent;
+  var phone=/iPhone|iPod|Android.*Mobile|Windows Phone|Mobi/i.test(ua)
+    ||(navigator.userAgentData&&navigator.userAgentData.mobile===true)
+    ||(window.matchMedia&&matchMedia('(pointer:coarse) and (hover:none)').matches&&Math.min(screen.width,screen.height)<=600);
   var v=q?q[1]:(phone?'mobile':'desktop');
   location.replace(v+'/index.html'+location.hash);
 })();
