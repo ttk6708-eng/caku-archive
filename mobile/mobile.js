@@ -1,4 +1,4 @@
-/* EAKU — 모바일 전용: 가로 스와이프 홈, FILTER 버튼 + 하단 시트 */
+/* CAKU — 모바일 전용: 가로 스와이프 홈, FILTER 버튼 + 하단 시트 */
 let pend={...F};
 function initRail(){
   const rail=$('#rail'),dots=document.querySelectorAll('#dots span');

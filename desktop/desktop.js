@@ -1,4 +1,4 @@
-/* EAKU — 데스크탑 전용: 필터 행(YEAR/SEMESTER/CLASS/PROJECT), 4열 홈 */
+/* CAKU — 데스크탑 전용: 필터 행(YEAR/SEMESTER/CLASS/PROJECT), 4열 홈 */
 function filterRow(title,key,items){
   return `<div class="frow"><h4>${title}</h4><div>${items.map(([v,l])=>`<button type="button" data-fk="${key}" data-fv="${v}" class="${F[key]===v?'on':''}">${l}</button>`).join('')}</div></div>`;
 }
