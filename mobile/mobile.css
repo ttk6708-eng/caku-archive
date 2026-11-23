@@ -49,3 +49,7 @@
   .idx-head{padding:6px 0 22px}.idx-head h1{font-size:34px}
   .srow{grid-template-columns:1fr auto;grid-template-areas:"sid sn" "info info" "th th";gap:10px;padding:18px 0}
   .sid{grid-area:sid}.sinfo{grid-area:info}.sth{grid-area:th}.sn{grid-area:sn}
+
+.login-wrap{margin-top:34px}
+.lf input{font-size:16px}
+.lmore{gap:16px}

@@ -1,3 +1,14 @@
 /* CAKU — 데스크탑 전용 스타일 */
 .m-tabs{display:none}
 .sheet,.scrim.sheet-scrim{display:none}
+
+/* 상단 메뉴: 로고 오른쪽에 붙고, 선택된 메뉴 아래에 짧은 바 */
+.top{align-items:flex-end;padding-top:24px;padding-bottom:26px}
+.top .nav{padding:0 0 0 42px;margin-right:auto;gap:48px;align-items:flex-end}
+.nav a{position:relative;padding:4px 0 10px}
+.nav a[aria-current="page"]{font-weight:600}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:50%;bottom:0;width:26px;height:2px;margin-left:-13px;background:var(--ink)}
+.d-actions{display:flex;align-items:center;gap:26px;padding-bottom:6px}
+.d-actions .login{padding:5px 11px}
+.d-actions .idx{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);padding:4px 0}
+.d-actions .idx:hover{opacity:.6}
