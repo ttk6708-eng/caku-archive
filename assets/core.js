@@ -242,7 +242,43 @@ function viewAbout(){
 }
 
 /* ============ ROUTER ============ */
-const views={home:viewHome,project:()=>Device.viewProject(),studio:viewStudioIndex,about:viewAbout};
+
+/* ============ LOGIN (시연용: 아무 값이나 입력하면 로그인된 것으로 처리) ============ */
+let loggedIn=false;
+function viewLogin(){
+  return `
+  <section class="login-wrap">
+    <div class="lg-head"><b>LOGIN</b><a href="#" data-toast="회원 안내는 시연에서 제외되었습니다">아카이브 회원</a></div>
+    <form id="loginForm" novalidate autocomplete="off">
+      <label class="lf"><span>학번 / 교번</span><input type="text" id="lid" inputmode="numeric" placeholder="202312345" autocomplete="username"></label>
+      <label class="lf"><span>비밀번호</span><input type="password" id="lpw" placeholder="••••••••" autocomplete="current-password"></label>
+      <p class="lerr" id="lerr" role="alert"></p>
+      <div class="lrow">
+        <label class="chk"><input type="checkbox" id="lkeep"><span>로그인 유지</span></label>
+        <span class="lmore"><a href="#" data-toast="회원가입은 시연에서 제외되었습니다">회원가입</a><a href="#" data-toast="비밀번호 찾기는 시연에서 제외되었습니다">비밀번호 찾기</a></span>
+      </div>
+      <button type="submit" class="btn-solid">LOGIN</button>
+      <button type="button" class="btn-line" data-toast="학교 통합계정(SSO) 연동은 시연에서 제외되었습니다">학교 통합계정(SSO)으로 로그인</button>
+    </form>
+    <p class="lnote">작품 등록과 원본 도면 열람은 건축학부 재학생·교직원만 가능합니다.</p>
+  </section>`;
+}
+function syncAuth(key){
+  const b=document.getElementById('loginBtn');if(!b)return;
+  b.textContent=loggedIn?'LOGOUT':'LOGIN';
+  b.classList.toggle('on',key==='login');
+}
+document.addEventListener('submit',e=>{
+  if(e.target.id!=='loginForm')return;
+  e.preventDefault();
+  const id=$('#lid').value.trim(),pw=$('#lpw').value;
+  const err=$('#lerr');
+  if(!id){err.textContent='학번 또는 교번을 입력해 주세요.';$('#lid').focus();return}
+  if(!pw){err.textContent='비밀번호를 입력해 주세요.';$('#lpw').focus();return}
+  loggedIn=true;toast('시연용 로그인되었습니다');go('#home');
+});
+
+const views={home:viewHome,project:()=>Device.viewProject(),studio:viewStudioIndex,about:viewAbout,login:viewLogin};
 var route=function(){
   const parts=(location.hash||'#home').slice(1).split('/');
   const key=views[parts[0]]?parts[0]:'home';
@@ -254,6 +290,7 @@ var route=function(){
   document.querySelectorAll('[data-r]').forEach(a=>{if(a.dataset.r===key)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   window.scrollTo(0,0);
   if(Device.afterRoute)Device.afterRoute(key);
+  syncAuth(key);
 };
 let lastHash=null;
 const _route=route;
@@ -286,7 +323,7 @@ document.addEventListener('click',e=>{
     document.querySelectorAll('#stabs button').forEach(b=>b.classList.toggle('on',b.dataset.sem===studioSem));return}
   if(t.dataset.back!==undefined){if(navs>0)history.back();else go('#project');return}
   if(t.id==='sMore'){studioShown+=12;$('#sgrid').innerHTML=studioGrid();return}
-  if(t.id==='loginBtn'){toast('로그인은 시연에서 제외되었습니다');return}
+  if(t.id==='loginBtn'){if(loggedIn){loggedIn=false;syncAuth('');toast('로그아웃되었습니다')}else go('#login');return}
 });
 
 function openOv(sel){$(sel).classList.add('open');document.body.style.overflow='hidden'}
@@ -305,3 +342,6 @@ $('#sq').addEventListener('input',runSearch);
 $('#sres').addEventListener('click',e=>{const b=e.target.closest('[data-sid]');if(b){closeOv();go('#project/'+b.dataset.sid)}});
 ['#idxBtn','#mSearch'].forEach(s=>{const b=$(s);if(b)b.onclick=openSearch});
 
+
+/* toast */
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1800)}
